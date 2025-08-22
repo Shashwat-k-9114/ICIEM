@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICIEM 2026 | BIT Noida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #ecc94b;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(26, 54, 93, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.3);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-accent:hover {
+            background: #f6ad55;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(43, 108, 176, 0.8)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* About Sections */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .about-card-content {
+            padding: 25px;
+        }
+
+        .about-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Call for Papers Section */
+        .cfp-container {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cfp-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Themes Section */
+        .themes-container {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+        }
+
+        .theme-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .theme-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        /* Speakers Section */
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .speaker-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .speaker-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .speaker-info {
+            padding: 20px;
+        }
+
+        .speaker-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .speaker-role {
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Committee Section */
+        .committee-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            margin: 0 10px 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .committee-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .committee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .committee-member {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .committee-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Registration Table */
+        .table-container {
+            overflow-x: auto;
+            margin: 40px 0;
+        }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fee-table th, .fee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .fee-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .fee-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .fee-table tr:hover {
+            background: #f7fafc;
+        }
+
+        /* Map Section */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Registration Section */
+        .registration {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .registration h2 {
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 22px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .cfp-container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+        }
+
+.speaker-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    margin: 0 10px 10px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #555;
+}
+
+.tab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+}
+
+.speakers-container {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.speakers-container.active {
+    display: block;
+}
+
+.speaker-category-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.speaker-category-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+.speaker-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.speaker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.speaker-card:hover .speaker-img {
+    transform: scale(1.05);
+}
+
+.flag-icon, .industry-badge, .academic-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.speaker-info {
+    padding: 20px;
+}
+
+.speaker-name {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.speaker-role {
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.speaker-bio {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .speaker-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+}
+/* Committee Section Styles */
+#committee {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.committee-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.committee-tabs .tab-btn {
+    padding: 12px 25px;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    color: #495057;
+}
+
+.committee-tabs .tab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    color: #3498db;
+}
+
+.committee-tabs .tab-btn.active {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+}
+
+.committee-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.committee-list {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.committee-list.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.committee-member {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #3498db;
+}
+
+.committee-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-left: 4px solid #2ecc71;
+}
+
+.member-info h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.member-info p {
+    color: #6c757d;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.member-role {
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .committee-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .committee-tabs .tab-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .committee-list.active {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="BIT Logo">
+                <span class="logo-text">ICIEM 2026</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#themes">Themes</a></li>
+                <li><a href="#speakers">Speakers</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#committee">Committee</a></li>
+                <li><a href="#registration">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>International Conference on Innovation in Engineering & Management</h1>
+            <p>February 5-6, 2026 | BIT Mesra, Noida Campus</p>
+            <p>Sustainability through Creativity and Innovation</p>
+            <div class="hero-buttons">
+                <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" class="btn">Register Now</a>
+                <a href="#about" class="btn btn-accent">Learn More</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Conference</h2>
+                <p>Learn more about this prestigious event</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80" alt="Conference">
+                    <div class="about-card-content">
+                        <h3>About The Conference</h3>
+                        <p>BIT Mesra Noida Campus is organizing ICIEM 2026 with the theme "Vasudhaiva Kutumbakam" inspired by the G20 vision. This interdisciplinary conference aims to foster dialogue and innovation across Management, Applied Sciences, Computer Science, Electronics, Animation, and Multimedia.</p>
+                        <p>The conference will provide a platform for knowledge exchange through Doctoral Research Paper Presentations, Student Research Competitions, and Case Study Showcases.</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <img src="assets/mesra.jpg" alt="BIT Mesra">
+                    <div class="about-card-content">
+                        <h3>About BIT Mesra</h3>
+                        <p>Birla Institute of Technology, Mesra (BIT Mesra), a Deemed to be University, is a premier technical and research institution in Ranchi, Jharkhand. Established in 1955 by B.M. Birla, it is renowned for excellence in engineering, technology, management, and applied sciences.</p>
+                        <p>The 780-acre campus offers state-of-the-art infrastructure and research facilities. BIT Mesra provides undergraduate, postgraduate, and doctoral programs.</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <img src="assets/noida.jpeg" alt="BIT Noida">
+                    <div class="about-card-content">
+                        <h3>About BIT Noida</h3>
+                        <p>Birla Institute of Technology, Noida (BIT Noida), an off-campus centre of BIT Mesra, is a distinguished institution known for academic excellence and professional education in the National Capital Region.</p>
+                        <p>The campus boasts modern infrastructure, industry-aligned curriculum, and experienced faculty committed to fostering innovation, critical thinking, and leadership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call for Papers Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cfp-container">
+                <div class="cfp-content">
+                    <h2>Call for Papers</h2>
+                    <p>BIT Mesra, Noida Campus invites academicians, industry professionals, research scholars, and students to submit original research papers for the International Conference on Innovation in Engineering & Management (ICIEM-2026) on the theme "Vasudhaiva Kutumbakam".</p>
+                    <p>We welcome cutting-edge contributions that reflect the spirit of unity and innovation for a sustainable future.</p>
+                    <br>
+                    <h2>Who can participate?</h2>
+                    <p>Educators and Researchers from all disciplines, industry functionaries, Research Scholars and Students.</p>
+                    <br>
+                    <a href="#registration" class="btn btn-accent">Submit Your Paper</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="section" id="themes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Themes & Sub-Themes</h2>
+                <p>Key topics to be covered in the conference</p>
+            </div>
+            <div class="themes-container">
+                <div class="theme-list">
+                    <div class="theme-item">
+                        <h3>Next-Gen Technologies in AI, Machine Learning & Big Data Analytics</h3>
+                        <p>Dr. Charu Wahi & Dr. Niket Mehta</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Emerging Technologies in Blockchain, IoT & Cybersecurity Ecosystems</h3>
+                        <p>Dr. Swati Prasad & Dr. Vibha Kaw Raina</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Innovation and Strategy in Digital Business & Startup Ecosystems</h3>
+                        <p>Dr. Meenakshi Sharma & Dr. Arun Mittal</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Leadership for Sustainability: Nurturing Green Competencies and Responsible Workforces</h3>
+                        <p>Dr. Asha Prasad & Dr. Monika Bisht</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Communication & Personality Development in the Digital Era</h3>
+                        <p>Dr. Suparna Dutta & Mrs. Preety Bajaj</p>
+                    </div>
+                <div class="theme-item">
+                    <h3>ESG: Commitment to Sustainability and Responsible Business Practices as a Valuable Differentiator</h3>
+                    <p>Dr. Chanpreet Kaur & Mrs. Rachana Pratik</p>
+                </div>
+                <div class="theme-item">
+                        <h3>Research Scholar Symposium - Advanced Research and Academic Innovation</h3>
+                        <p>Dr. Niraj Mishra & Dr. Praveen Srivastava</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Future Leaders Forum - PG & UG Student Research Presentations</h3>
+                        <p>Mrs. Sheetal Sehgal & Mrs. Muntaha Ahmad (PG)</p>
+                        <p>&</p>
+                        <p>Mrs. Priti Sharma & Mrs. Soma Sircar Dasgupta (UG)</p>
+                    </div>
+                    <div class="theme-item">
+                        <h3>Contemporary Challenges in Management, Policy & Society</h3>
+                        <p>Dr. S.L. Gupta, Dr. Umair Ujala & Mrs. Pramila Joshi</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Speakers Section -->
+<section class="section" id="speakers">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Distinguished Speakers</h2>
+            <p>Renowned experts sharing their knowledge and insights</p>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="speaker-tabs">
+            <button class="tab-btn active" data-category="international">International Speakers</button>
+            <button class="tab-btn" data-category="industry">Industry Experts</button>
+            <button class="tab-btn" data-category="academic">National Academic Speakers</button>
+        </div>
+        
+        <!-- International Speakers -->
+        <div class="speakers-container active" id="international-speakers">
+            <h3 class="speaker-category-title">Global Thought Leaders</h3>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Nripendra P. Rana</h3>
+                        <p class="speaker-role">Professor of Digital Marketing and Systems at Queen’s Business School, Queen’s University Belfast, UK</p>
+                        <p class="speaker-bio">Expert in Artificial Intelligence and Machine Learning with 15+ years of international research experience.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. (Dr.) Chu Keong Lee</h3>
+                        <p class="speaker-role">Nanyang Technological University, Singapore</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. (Dr.) Kun-Huang Huarng</h3>
+                        <p class="speaker-role">National Taipei University of Business</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. (Dr.) Sudhir Rana</h3>
+                        <p class="speaker-role">Gulf Medical University</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. (Dr.) Anshuman Sharma</h3>
+                        <p class="speaker-role">Ajman University</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. (Dr.) Nripendra Singh</h3>
+                        <p class="speaker-role">Professor of Marketing, Pennsylvania Western University, Clarion, PA, USA</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. Jayanthi N. Dewasiri</h3>
+                        <p class="speaker-role">President, Sri Lanka Institute of Marketing</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Sameer Rohadia</h3>
+                        <p class="speaker-role">Business Intelligence Developer for Mobile App Development, Hannover</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Prof. Larry C. Pickett</h3>
+                        <p class="speaker-role">Carnegie Mellon University</p>
+                        <p class="speaker-bio">Expert in Internet of Things and Smart Systems, with patents in 12 countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Industry Experts -->
+        <div class="speakers-container" id="industry-speakers">
+            <h3 class="speaker-category-title">Industry Pioneers</h3>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Rishi Mohan Bhatnagar</h3>
+                        <p class="speaker-role">Co-Founder & MD, AA2IT</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Pramod Kumar</h3>
+                        <p class="speaker-role">Group Delivery Head/Vice President for Govt, PSU, Tech Mahindra</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Ashutosh Agarwal</h3>
+                        <p class="speaker-role">Founder, OniT Services</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Somesh Nath</h3>
+                        <p class="speaker-role">Ex DGM, Tata Motors, Current Head of T&P at Accurate Group of Institutions</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Satyajeet Azad</h3>
+                        <p class="speaker-role">GenAI Lead Developer, Accenture</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Abhishek Singh</h3>
+                        <p class="speaker-role">National Head, Brittania Industries</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Shantipriya Parida</h3>
+                        <p class="speaker-role">Sailo AI, Denmark</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Anjan Panda</h3>
+                        <p class="speaker-role">Founder, Dublin AI, USA</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                        <div class="industry-badge"><i class="fas fa-industry"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Mansingh Jaiswal</h3>
+                        <p class="speaker-role">Director, Genex Logic Solutions Pvt. Ltd.</p>
+                        <p class="speaker-bio">Pioneer in Natural Language Processing with implementations across Fortune 500 companies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- National Academic Speakers -->
+        <div class="speakers-container" id="academic-speakers">
+            <h3 class="speaker-category-title">National Academic Excellence</h3>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Justin Paul</h3>
+                        <p class="speaker-role">NMIMS Mumbai</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Sujeet Sharma</h3>
+                        <p class="speaker-role">IIM Nagpur</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Rajeev Aggarwal</h3>
+                        <p class="speaker-role">MNIT Jaipur</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Sonia Chawla</h3>
+                        <p class="speaker-role">NIT Jalandhar</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Naval Kishor</h3>
+                        <p class="speaker-role">Research Head, Stanford University</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Lokesh Jindal</h3>
+                        <p class="speaker-role">JNU</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                        <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Dr. Pooja Kansra</h3>
+                        <p class="speaker-role">Lovely Professional University</p>
+                        <p class="speaker-bio">Leading researcher in Robotics and Automation with numerous national awards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Timeline Section -->
+    <section class="section" id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Important Dates</h2>
+                <p>Mark your calendar for these important deadlines</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">October 31, 2025</div>
+                        <h3>Abstract Submission Deadline</h3>
+                        <p>Last date for submitting abstracts for consideration</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 30, 2025</div>
+                        <h3>Full Paper Submission</h3>
+                        <p>Deadline for submitting full-length papers</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">December 31, 2025</div>
+                        <h3>Notification of Acceptance</h3>
+                        <p>Authors will be notified about the acceptance of their papers</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 10, 2026</div>
+                        <h3>Registration Deadline</h3>
+                        <p>Last date for registration</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">February 5-6, 2026</div>
+                        <h3>Conference Dates</h3>
+                        <p>Main conference events and presentations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Fees Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration Fees</h2>
+                <p>Fee structure for different categories of participants</p>
+            </div>
+            <div class="table-container">
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Indian (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Students</td>
+                            <td>₹500</td>
+                        </tr>
+                        <tr>
+                            <td>Research Scholars</td>
+                            <td>₹1,000</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty Members</td>
+                            <td>₹2,000</td>
+                        </tr>
+                        <tr>
+                            <td>Industry Professionals</td>
+                            <td>₹3,000</td>
+                        </tr>
+                        <tr>    
+                            <td>Foreign Participants</td>
+                            <td>$100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+<!-- Committee Section -->
+<section class="section" id="committee">
+    <div class="container">
+        <div class="section-title">
+            <h2>Organizing Committee</h2>
+            <p>Meet the dedicated team behind the conference</p>
+        </div>
+        
+        <div class="committee-tabs">
+            <button class="tab-btn active" data-tab="patrons">Patrons</button>
+            <button class="tab-btn" data-tab="chairman">Chairman</button>
+            <button class="tab-btn" data-tab="organizing">Organizing Secretary</button>
+            <button class="tab-btn" data-tab="advisors">Advisors</button>
+            <button class="tab-btn" data-tab="convenors">Convenors</button>
+        </div>
+        
+        <div class="committee-content">
+            <!-- Patrons Tab -->
+            <div class="committee-list active" id="patrons-tab">
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Prof. (Dr.) Indranil Manna</h3>
+                        <p>Vice Chancellor, BIT Mesra, Ranchi</p>
+                        <span class="member-role">Patron</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chairman Tab -->
+            <div class="committee-list" id="chairman-tab">
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Dr. Abhinav Kumar Shandilya</h3>
+                        <p>Director, Institute of Technology</p>
+                        <span class="member-role">Chairman</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advisors Tab -->
+            <div class="committee-list" id="advisors-tab">
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>HOD Department of Management Studies</h3>
+                        <span class="member-role">Advisor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>HOD Department of C.S.E</h3>
+                        <span class="member-role">Advisor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Prof. (Dr.) Asha Prasad</h3>
+                        <span class="member-role">Advisor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Prof. (Dr.) Meenakshi Sharma</h3>
+                        <span class="member-role">Advisor</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Convenors Tab -->
+            <div class="committee-list" id="convenors-tab">
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Dr. Arun Mittal & Dr. Monika Bisht</h3>
+                        <p>DMS BIT Noida</p>
+                        <span class="member-role">Convenor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Dr. Charu Wahi and Dr. Swati Prasad</h3>
+                        <p>CSE BIT Noida</p>
+                        <span class="member-role">Convenor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Dr. Niket Mehta & Mr. Lalit Bhatt</h3>
+                        <p>A&M BIT Noida</p>
+                        <span class="member-role">Convenor</span>
+                    </div>
+                </div>
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Dr. Praveen Srivastava & Dr. Niraj Mishra</h3>
+                        <p>BIT Mesra</p>
+                        <span class="member-role">Convenor</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Organizing Secretary Tab -->
+            <div class="committee-list" id="organizing-tab">
+                <div class="committee-member">
+                    <div class="member-info">
+                        <h3>Prof. (Dr.) S.L. Gupta</h3>
+                        <p>Professor, Department of Management</p>
+                        <span class="member-role">Organizing Secretary</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Map Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conference Venue</h2>
+                <p>BIT Mesra Extension Center, Noida</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.367413331686!2d77.30713507601527!3d28.588752586066565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f52c768c1d%3A0x106d0bd4d6f0cbe3!2sBirla%20Institute%20of%20Technology%20Mesra%2C%20Off-Campus%20Noida!5e0!3m2!1sen!2sin!4v1755836622643!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <h2>Register for the Conference</h2>
+            <p>Secure your spot at this prestigious event</p>
+            <br>
+            <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" class="btn btn-accent" target="_blank">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with the organizing committee</p>
+                <br>
+            </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> BIT Mesra Extension Center, A-7, Sector 1, Noida, UP 201301</li>
+                        <li><i class="fas fa-phone"></i> +91 1234567890</li>
+                        <li><i class="fas fa-envelope"></i> conference@bitnoida.ac.in</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Conference</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated with the latest conference news</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2023 BIT Noida International Conference. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const header = document.getElementById('header');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Committee tabs functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Here you would show the corresponding content
+                // This is a simplified version - you would need to implement the content switching
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-card, .speaker-card, .timeline-item, .theme-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.about-card, .speaker-card, .timeline-item, .theme-item').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const speakerContainers = document.querySelectorAll('.speakers-container');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+            
+            // Update active tab
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Show corresponding speakers
+            speakerContainers.forEach(container => {
+                container.classList.remove('active');
+                if (container.id === `${category}-speakers`) {
+                    container.classList.add('active');
+                }
+            });
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const committeeTabButtons = document.querySelectorAll('#committee .tab-btn');
+    const committeeLists = document.querySelectorAll('.committee-list');
+    
+    committeeTabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tab = button.getAttribute('data-tab');
+            
+            // Update active tab
+            committeeTabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Show corresponding committee list
+            committeeLists.forEach(list => {
+                list.classList.remove('active');
+                if (list.id === `${tab}-tab`) {
+                    list.classList.add('active');
+                }
+            });
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
