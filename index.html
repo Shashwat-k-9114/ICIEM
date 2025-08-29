@@ -959,6 +959,224 @@
         grid-template-columns: 1fr;
     }
 }
+<style>
+    /* Speaker Section Styles */
+    #speakers {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+        font-size: 36px;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title h2:after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background: #3498db;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .section-title p {
+        font-size: 18px;
+        color: #7f8c8d;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Tabs */
+    .speaker-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        padding: 12px 24px;
+        margin: 0 10px 10px;
+        background: #fff;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #7f8c8d;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .tab-btn:hover {
+        background: #3498db;
+        color: #fff;
+    }
+    
+    .tab-btn.active {
+        background: #3498db;
+        color: #fff;
+    }
+    
+    /* Speaker Category Title */
+    .speaker-category-title {
+        text-align: center;
+        font-size: 28px;
+        color: #2c3e50;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .speaker-category-title:after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        background: #3498db;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Speakers Grid */
+    .speakers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    /* Speaker Card */
+    .speaker-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .speaker-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .speaker-icon-container {
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .speaker-icon-container i {
+        font-size: 70px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .industry-badge, .academic-badge {
+        position: absolute;
+        bottom: -15px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .industry-badge {
+        background: #e74c3c;
+        color: #fff;
+    }
+    
+    .academic-badge {
+        background: #9b59b6;
+        color: #fff;
+    }
+    
+    .speaker-info {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .speaker-name {
+        font-size: 20px;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    .speaker-role {
+        color: #3498db;
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+    
+    .speaker-bio {
+        color: #7f8c8d;
+        line-height: 1.6;
+        margin-top: auto;
+    }
+    
+    /* Container visibility */
+    .speakers-container {
+        display: none;
+    }
+    
+    .speakers-container.active {
+        display: block;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .speakers-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        
+        .section-title h2 {
+            font-size: 28px;
+        }
+        
+        .speaker-category-title {
+            font-size: 24px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .speaker-tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-btn {
+            width: 80%;
+            margin-bottom: 15px;
+        }
+        
+        .speakers-grid {
+            grid-template-columns: 1fr;
+        }
+    }
     </style>
 </head>
 <body>
@@ -1125,18 +1343,18 @@
             <h3 class="speaker-category-title">Global Thought Leaders</h3>
             <div class="speakers-grid">
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Dr. Nripendra P. Rana</h3>
-                        <p class="speaker-role">Professor of Digital Marketing and Systems at Queen’s Business School, Queen’s University Belfast, UK</p>
+                        <p class="speaker-role">Professor of Digital Marketing and Systems at Queen's Business School, Queen's University Belfast, UK</p>
                         <p class="speaker-bio">Expert in Artificial Intelligence and Machine Learning with 15+ years of international research experience.</p>
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. (Dr.) Chu Keong Lee</h3>
@@ -1145,8 +1363,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. (Dr.) Kun-Huang Huarng</h3>
@@ -1155,8 +1373,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. (Dr.) Sudhir Rana</h3>
@@ -1165,8 +1383,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. (Dr.) Anshuman Sharma</h3>
@@ -1175,8 +1393,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. (Dr.) Nripendra Singh</h3>
@@ -1185,8 +1403,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. Jayanthi N. Dewasiri</h3>
@@ -1195,8 +1413,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Dr. Sameer Rohadia</h3>
@@ -1205,8 +1423,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                     </div>
                     <div class="speaker-info">
                         <h3 class="speaker-name">Prof. Larry C. Pickett</h3>
@@ -1222,8 +1440,8 @@
             <h3 class="speaker-category-title">Industry Pioneers</h3>
             <div class="speakers-grid">
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1233,8 +1451,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1244,8 +1462,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1255,8 +1473,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1266,8 +1484,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1277,8 +1495,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1288,8 +1506,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1299,8 +1517,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1310,8 +1528,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="industry-badge"><i class="fas fa-industry"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1328,8 +1546,8 @@
             <h3 class="speaker-category-title">National Academic Excellence</h3>
             <div class="speakers-grid">
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1339,8 +1557,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1350,8 +1568,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1361,8 +1579,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1372,8 +1590,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1383,8 +1601,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1394,8 +1612,8 @@
                     </div>
                 </div>
                 <div class="speaker-card">
-                    <div class="speaker-img-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Speaker" class="speaker-img">
+                    <div class="speaker-icon-container">
+                        <i class="fas fa-user-circle"></i>
                         <div class="academic-badge"><i class="fas fa-graduation-cap"></i></div>
                     </div>
                     <div class="speaker-info">
@@ -1408,6 +1626,8 @@
         </div>
     </div>
 </section>
+
+
 
     <!-- Timeline Section -->
     <section class="section" id="timeline">
@@ -1813,7 +2033,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const speakerContainers = document.querySelectorAll('.speakers-container');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                
+                // Update active tab
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show corresponding container
+                speakerContainers.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === `${category}-speakers`) {
+                        container.classList.add('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
 
-    </script>
 </body>
 </html>
