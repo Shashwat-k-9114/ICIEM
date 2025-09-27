@@ -1177,30 +1177,52 @@
             grid-template-columns: 1fr;
         }
     }
+    /* Brochure Button Styles */
+.btn-brochure {
+    background: #28a745;
+    color: white;
+}
+
+.btn-brochure:hover {
+    background: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+}
+
+/* Show header brochure button on desktop */
+@media (min-width: 993px) {
+    #header-brochure-btn {
+        display: inline-block !important;
+    }
+}
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container header-container">
-            <div class="logo">
-                <img src="https://ik.imagekit.io/2ay6kcemqx/logo.png?updatedAt=1755844157800" alt="BIT Logo">
-                <span class="logo-text">ICIEM 2026</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#themes">Themes</a></li>
-                <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#committee">Committee</a></li>
-                <li><a href="#registration">Register</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+    <!-- In the Header section, add this inside the header-container after nav-links: -->
+<header id="header">
+    <div class="container header-container">
+        <div class="logo">
+            <img src="https://ik.imagekit.io/2ay6kcemqx/logo.png?updatedAt=1755844157800" alt="BIT Logo">
+            <span class="logo-text">ICIEM 2026</span>
         </div>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#themes">Themes</a></li>
+            <li><a href="#speakers">Speakers</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#committee">Committee</a></li>
+            <li><a href="#registration">Register</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1P-D8sD2fPWJ2zoK2NgF12kci1jwHDpQY/view?usp=sharing" download="ICIEM-2026-Brochure.pdf" class="btn" style="background: #28a745; margin-left: 15px; display: none;" id="header-brochure-btn">
+            <i class="fas fa-download"></i> Brochure
+        </a>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1208,10 +1230,14 @@
             <h1>International Conference on Innovation in Engineering & Management</h1>
             <p>February 5-6, 2026 | BIT Mesra, Noida Campus</p>
             <p>Sustainability through Creativity and Innovation</p>
-            <div class="hero-buttons">
-                <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" target="_blank" class="btn">Register Now</a>
-                <a href="#about" class="btn btn-accent">Learn More</a>
-            </div>
+<!-- In the Hero Section, replace the existing hero-buttons div with this: -->
+<div class="hero-buttons">
+    <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" target="_blank" class="btn">Register Now</a>
+    <a href="#about" class="btn btn-accent">Learn More</a>
+    <a href="https://drive.google.com/file/d/1tsZ_visTJV8U0T0yzgQ7aKfFny-EIPlX/view?usp=sharing" download="ICIEM-2026-Brochure.pdf" class="btn" style="background: #28a745;">
+        <i class="fas fa-download"></i> Download Brochure
+    </a>
+</div>
         </div>
         <a href="#about" class="scroll-down">
             <i class="fas fa-chevron-down"></i>
@@ -1750,7 +1776,7 @@
             <div class="committee-list" id="chairman-tab">
                 <div class="committee-member">
                     <div class="member-info">
-                        <h3>Dr. Abhinav Kumar Shandilya</h3>
+                        <h3>Prof. (Dr.) Vikas Tripathi</h3>
                         <p>Director, Institute of Technology</p>
                         <span class="member-role">Chairman</span>
                     </div>
@@ -1836,7 +1862,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Conference Venue</h2>
-                <p>BIT Mesra Extension Center, Noida</p>
+                <p>Birla Institute of Technology, Mesra, Noida Campus, A-7, Sector 1, Noida - 201301, Uttar Pradesh, India</p>
             </div>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.367413331686!2d77.30713507601527!3d28.588752586066565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f52c768c1d%3A0x106d0bd4d6f0cbe3!2sBirla%20Institute%20of%20Technology%20Mesra%2C%20Off-Campus%20Noida!5e0!3m2!1sen!2sin!4v1755836622643!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1845,14 +1871,18 @@
     </section>
 
     <!-- Registration Section -->
-    <section class="registration" id="registration">
-        <div class="container">
-            <h2>Register for the Conference</h2>
-            <p>Secure your spot at this prestigious event</p>
-            <br>
-            <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" class="btn btn-accent" target="_blank">Register Now</a>
-        </div>
-    </section>
+    <!-- In the Registration Section, add this after the existing button: -->
+<section class="registration" id="registration">
+    <div class="container">
+        <h2>Register for the Conference</h2>
+        <p>Secure your spot at this prestigious event</p>
+        <br>
+        <a href="https://forms.gle/HFQPrJ6Lb5Uhb25w9" class="btn btn-accent" target="_blank">Register Now</a>
+        <a href="https://drive.google.com/file/d/1tsZ_visTJV8U0T0yzgQ7aKfFny-EIPlX/view?usp=sharing" download="ICIEM-2026-Brochure.pdf" class="btn" style="background: #28a745; margin-left: 15px;">
+            <i class="fas fa-download"></i> Download Brochure
+        </a>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="section" id="contact">
