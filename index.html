@@ -1221,6 +1221,64 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+/* Add to your CSS section */
+.track-coordinator {
+    color: rgba(255, 254, 254, 0.9);
+    font-weight: 600;
+    margin: 10px 0 15px;
+    font-size: 0.95rem;
+}
+
+.track-coordinator i {
+    margin-right: 8px;
+    color: var(--accent);
+}
+
+.sub-themes {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.sub-themes li {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 15px;
+}
+
+.sub-themes li:before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Make theme items expandable for better mobile view */
+.theme-item {
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.theme-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.theme-item h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
     </style>
 </head>
 <body>
@@ -1374,55 +1432,154 @@
 </section>
 
     <!-- Themes Section -->
-    <section class="section" id="themes">
-        <div class="container">
-            <div class="section-title">
-                <h2>Conference Tracks</h2>
-                <p>Key topics to be covered in the conference</p>
-            </div>
-            <div class="themes-container">
-                <div class="theme-list">
-                    <div class="theme-item">
-                        <h3>Next-Gen Technologies in AI, Machine Learning & Big Data Analytics</h3>
-                        <p>Dr. Charu Wahi & Dr. Niket Mehta</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Emerging Technologies in Blockchain, IoT & Cybersecurity Ecosystems</h3>
-                        <p>Dr. Swati Prasad & Dr. Vibha Kaw Raina</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Innovation and Strategy in Digital Business & Startup Ecosystems</h3>
-                        <p>Dr. Meenakshi Sharma & Dr. Arun Mittal</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Leadership for Sustainability: Nurturing Green Competencies and Responsible Workforces</h3>
-                        <p>Dr. Asha Prasad & Dr. Monika Bisht</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Communication & Personality Development in the Digital Era</h3>
-                        <p>Dr. Suparna Dutta & Mrs. Preety Bajaj</p>
-                    </div>
+    <!-- Themes Section -->
+<section class="section" id="themes">
+    <div class="container">
+        <div class="section-title">
+            <h2>Conference Tracks</h2>
+            <p>Detailed topics and sub-themes for paper submission</p>
+        </div>
+        <div class="themes-container">
+            <div class="theme-list">
+                <!-- Track 1 -->
                 <div class="theme-item">
-                    <h3>ESG: Commitment to Sustainability and Responsible Business Practices as a Valuable Differentiator</h3>
-                    <p>Dr. Chanpreet Kaur & Mrs. Rachana Pratik</p>
+                    <h3>Track 1: Next-Gen Technologies in AI, Machine Learning & Big Data Analytics</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Charu Wahi & Dr. Niket Mehta</p>
+                    <ul class="sub-themes">
+                        <li>AI for Climate action, Renewable energy forecasting, Grid optimization and Environmental Monitoring</li>
+                        <li>Explainable and Ethical AI for responsible Innovation</li>
+                        <li>Natural Language Processing and Generative AI</li>
+                        <li>Energy-Efficient Machine Learning Algorithms</li>
+                        <li>AI and Big Data in Smart Cities and Urban Sustainability</li>
+                        <li>Green Data centers and Sustainable Big Data Infrastructure</li>
+                        <li>Edge AI and Federated Learning for Decentralized Sustainability</li>
+                        <li>AI for Sustainable Development Goals (SDG) Monitoring and Impact Assessment</li>
+                    </ul>
                 </div>
+                
+                <!-- Track 2 -->
                 <div class="theme-item">
-                        <h3>Research Scholar Symposium - Advanced Research and Academic Innovation</h3>
-                        <p>Dr. Niraj Mishra & Dr. Praveen Srivastava</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Future Leaders Forum - PG & UG Student Research Presentations</h3>
-                        <p>Mrs. Sheetal Sehgal & Mrs. Muntaha Ahmad (PG)</p>
-                        <p>&</p>
-                        <p>Mrs. Priti Sharma & Mrs. Soma Sircar Dasgupta (UG)</p>
-                    </div>
-                    <div class="theme-item">
-                        <h3>Contemporary Challenges in Management, Policy & Society</h3>
-                        <p>Dr. S.L. Gupta, Dr. Umair Ujala & Mrs. Pramila Joshi</p>
-                    </div>
+                    <h3>Track 2: Emerging Technologies in Blockchain, IoT & Cybersecurity Ecosystems</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Swati Prasad & Dr. Vibha Kaw Raina</p>
+                    <ul class="sub-themes">
+                        <li>IoT in Smart Cities, Healthcare, and Industry 4.0</li>
+                        <li>AI-Powered Cyber Defense: Threat Detection and Response</li>
+                        <li>Building Resilient and Trustworthy Digital Ecosystems</li>
+                        <li>Edge Computing and Real-Time IoT Applications</li>
+                        <li>5G Integration and the Future of Connected Devices</li>
+                    </ul>
+                </div>
+                
+                <!-- Track 3 -->
+                <div class="theme-item">
+                    <h3>Track 3: Innovation and Strategy in Digital Business & Startup Ecosystems</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Meenakshi Sharma & Dr. Arun Mittal</p>
+                    <ul class="sub-themes">
+                        <li>Disruptive Technologies and Business Model Innovation</li>
+                        <li>Scaling Startups: Strategy, Structure, and Sustainability</li>
+                        <li>Digital Transformation and Customer-Centric Innovation</li>
+                        <li>Entreprenerial Ecosystems and Innovation Hubs</li>
+                        <li>Data-Driven Strategy and Analytics in Startups</li>
+                        <li>FinTech, EdTech, and Healthtech Startups: Sectoral Innovations</li>
+                    </ul>
+                </div>
+                
+                <!-- Track 4 -->
+                <div class="theme-item">
+                    <h3>Track 4: Leadership for Sustainability: Nurturing Green Competencies and Responsible Workforces</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Asha Prasad & Dr. Monika Bisht</p>
+                    <ul class="sub-themes">
+                        <li>Green Human Capital Development for Sustainable Organizational Performance</li>
+                        <li>HR Technology, Analytics, and AI in Green Talent Development</li>
+                        <li>Green Human Resource and Sustainability Leadership Management</li>
+                        <li>Reimagining leadership for the modern era workforce in a digitally connected world</li>
+                        <li>Leadership for Sustainability in developing Green Human Resource Competencies</li>
+                        <li>Digital Sustainability: Empowering Businesses through AI and Green Workforce Development</li>
+                        <li>Employee Engagement and Responsible work behavior</li>
+                    </ul>
+                </div>
+                
+                <!-- Track 5 -->
+                <div class="theme-item">
+                    <h3>Track 5: Communication & Personality Development in the Digital Era</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Suparna Dutta & Mrs. Preety Bajaj</p>
+                    <ul class="sub-themes">
+                        <li>Digital Communication Competencies in the Hybrid Workplace</li>
+                        <li>Communication Ethics in the Age of Misinformation</li>
+                        <li>Strategic Communication for Digital Change Management</li>
+                        <li>Emotional Intelligence and Empathy in Tech-Driven Workplaces</li>
+                        <li>Interpersonal Skills for Multigenerational Workforces</li>
+                    </ul>
+                </div>
+                
+                <!-- Track 6 -->
+                <div class="theme-item">
+                    <h3>Track 6: ESG: Commitment to Sustainability and Responsible Business Practices as a Valuable Differentiator</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Chanpreet Kaur & Mrs. Rachna Pratik</p>
+                    <ul class="sub-themes">
+                        <li>ESG in Business Strategies: A trickle-down effect from Boards to Base of the Community</li>
+                        <li>ESG as a Competitive Edge with Quality and Value to consumers</li>
+                        <li>Double Materiality and Stakeholder Capitalism: Rewriting Business Purpose</li>
+                        <li>ESG for Environment: Optimizing Energy and Waste, Building Circular Economy</li>
+                        <li>ESG and Financial Metrics: Monetizing the Cost and Benefits of Ethical and Sustainable Business Practices</li>
+                        <li>Governance in the ESG Era: Ethical Leadership, Accountability and Transparency</li>
+                        <li>Social Impact Strategies: Inclusive Growth and Human Rights in Business</li>
+                        <li>Decarbonization and the Environmental Transition: Corporate Action on Climate</li>
+                        <li>ESG Reporting and Assurance: From Transparency to Trust</li>
+                        <li>Technology for ESG: Leveraging AI, Blockchain, and Data Analytics</li>
+                        <li>ESG Investing: What Investors Want, What Companies Must Deliver</li>
+                        <li>SMEs and ESG: Challenges and Innovations in Responsible Growth</li>
+                        <li>Regulatory Readiness and Challenges in Alignment with Reporting Frameworks: Navigating BRSR with CSRD, SASB, GRI and other reporting frameworks</li>
+                        <li>Greenwashing vs. Genuine Action: Measuring the Quality of ESG Disclosure</li>
+                        <li>Industry Specific ESG norms and actions: Corporate Cases on Practices and Reporting challenges</li>
+                        <li>ESG: Performance verses PR</li>
+                        <li>ESG for Human Resource Development and Wellbeing: Building and tapping the World's workforce</li>
+                        <li>The 'S' of ESG: Bridging Traditional knowledge with Modern requirements, generating entrepreneurial capital</li>
+                        <li>E of ESG: Replenishing resources and protecting Biodiversity</li>
+                        <li>ESG for Sustainable Supply chain</li>
+                    </ul>
+                </div>
+                
+                <!-- Track 7 -->
+                <div class="theme-item">
+                    <h3>Track 7: Research Scholar Symposium – Advanced Research and Academic Innovation</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. Niraj Mishra & Dr. Praveen Srivastava</p>
+                    <p class="sub-themes" style="font-style: italic; margin-top: 10px;">
+                        Dedicated platform for research scholars to present advanced research and innovative academic work
+                    </p>
+                </div>
+                
+                <!-- Track 8 -->
+                <div class="theme-item">
+                    <h3>Track 8: Future Leaders Forum – PG & UG Student Research Presentations</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Mrs. Sheetal Sehgal & Mrs. Muntaha Ahmad (PG)</p>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Mrs. Priti Sharma & Mrs. Soma Sircar Dasgupta (UG)</p>
+                    <p class="sub-themes" style="font-style: italic; margin-top: 10px;">
+                        Platform for postgraduate and undergraduate students to showcase research presentations
+                    </p>
+                </div>
+                
+                <!-- Track 9 -->
+                <div class="theme-item">
+                    <h3>Track 9: Contemporary Challenges in Management, Policy & Society</h3>
+                    <p class="track-coordinator"><i class="fas fa-user-tie"></i> Dr. S.L. Gupta, Dr. Umair Ujala & Mrs. Pramila Joshi</p>
+                    <ul class="sub-themes">
+                        <li>Globalization and Cross-Cultural Management</li>
+                        <li>Sustainability and Corporate Social Responsibility</li>
+                        <li>Employee Well-being and Mental Health</li>
+                        <li>Data Privacy and Ethical Issues</li>
+                        <li>Public Engagement and Participation</li>
+                        <li>Addressing Inequality and Social Justice</li>
+                        <li>Balancing Economic Growth with Social and Environmental Goals</li>
+                        <li>Social Inequality and Economic Disparities</li>
+                        <li>Public Health and Pandemics</li>
+                        <li>Technological Disruption and its Societal Impact</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Why Participate Section -->
 <section class="section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
