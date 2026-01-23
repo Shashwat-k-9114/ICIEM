@@ -1322,6 +1322,187 @@
     70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
     100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
+
+    /* Popup Modal Styles */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup-modal {
+        background: white;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        transform: translateY(-30px);
+        transition: transform 0.4s ease;
+        opacity: 0;
+    }
+
+    .popup-overlay.active .popup-modal {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .popup-header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 25px 30px;
+        position: relative;
+    }
+
+    .popup-header h3 {
+        font-size: 1.5rem;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .popup-header .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+
+    .popup-header .close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .popup-content {
+        padding: 30px;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .popup-content .greeting {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .popup-content .message {
+        color: var(--dark);
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .popup-content .important-note {
+        background: #fff8e1;
+        border-left: 4px solid var(--accent);
+        padding: 15px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+
+    .popup-content .important-note p {
+        color: #e65100;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .popup-footer {
+        padding: 20px 30px;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+        text-align: right;
+    }
+
+    .popup-footer .signature {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .popup-footer .signature strong {
+        color: var(--primary);
+    }
+
+    .popup-footer .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .popup-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .popup-checkbox input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .popup-close-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
+
+    .popup-close-btn:hover {
+        background: var(--secondary);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .popup-modal {
+            width: 95%;
+            margin: 20px;
+        }
+
+        .popup-content {
+            padding: 20px;
+            max-height: 50vh;
+        }
+
+        .popup-footer .action-buttons {
+            flex-direction: column;
+            gap: 15px;
+            align-items: stretch;
+        }
+
+        .popup-close-btn {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 <body>
@@ -2566,7 +2747,117 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Popup functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('announcementPopup');
+        const closeBtn = document.getElementById('closePopupBtn');
+        const understandBtn = document.getElementById('understandBtn');
+        const dontShowCheckbox = document.getElementById('dontShowAgain');
+        
+        // Check if user has already closed the popup
+        const popupClosed = localStorage.getItem('iciemPopupClosed');
+        
+        // Show popup after 2 seconds if not previously closed
+        if (!popupClosed) {
+            setTimeout(() => {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }, 2000);
+        }
+        
+        // Close popup function
+        function closePopup() {
+            popup.classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+            
+            // If "Don't show again" is checked, save preference
+            if (dontShowCheckbox.checked) {
+                localStorage.setItem('iciemPopupClosed', 'true');
+            }
+        }
+        
+        // Close on button clicks
+        closeBtn.addEventListener('click', closePopup);
+        understandBtn.addEventListener('click', closePopup);
+        
+        // Close on overlay click (outside the modal)
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closePopup();
+            }
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+        
+        // Optional: Show popup when user tries to register
+        const registerButtons = document.querySelectorAll('a[href*="forms.gle"], a[href*="#registration"]');
+        registerButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (!localStorage.getItem('iciemPopupClosed')) {
+                    e.preventDefault();
+                    popup.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+    });
 </script>
+<div class="popup-overlay" id="announcementPopup">
+    <div class="popup-modal">
+        <div class="popup-header">
+            <h3><i class="fas fa-bullhorn"></i> Important Announcement</h3>
+            <button class="close-btn" id="closePopupBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="popup-content">
+            <p class="greeting">Dear Participants,</p>
+            
+            <p class="message">
+                Greetings from BIT!<br><br>
+                
+                At the outset, we thank you for your overwhelming response to the <strong>4th International Conference on Innovation, Engineering and Management (ICIEM'26).</strong> This is to inform you that due to some unavoidable circumstances, the conference has been postponed till March 2026 (Tentatively).
+            </p>
+            
+            <div class="important-note">
+                <p>
+                    <i class="fas fa-exclamation-circle"></i> 
+                    The final dates will be Announced in the First Week of February, 2026.
+                </p>
+            </div>
+            
+            <p class="message">
+                In anticipation of your support and cooperation.
+            </p>
+        </div>
+        
+        <div class="popup-footer">
+            <div class="signature">
+                <p>Best Regards,</p>
+                <p><strong>Prof. (Dr.) S. L. Gupta</strong><br>
+                Organising Secretary<br>
+                4th ICIEM'26<br>
+                Birla Institute of Technology, Mesra – Noida Campus</p>
+            </div>
+            
+            <div class="action-buttons">
+                <div class="popup-checkbox">
+                    <input type="checkbox" id="dontShowAgain">
+                    <label for="dontShowAgain">Don't show this message again</label>
+                </div>
+                <button class="popup-close-btn" id="understandBtn">
+                    <i class="fas fa-check-circle"></i> I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
